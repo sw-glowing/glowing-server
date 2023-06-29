@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/web/kit")
-@Tag(name = "Problem Kit", description = "Problem Kit API")
+@RequestMapping(value = "/web/corpus")
+@Tag(name = "Corpus", description = "Corpus API")
 public class CorpusController {
 
   private final CorpusService corpusService;
