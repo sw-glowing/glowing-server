@@ -24,7 +24,7 @@ import org.hibernate.annotations.DynamicInsert;
 @DynamicInsert
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "tlm")
-public class Tlm extends BaseEntity {
+public class Tlm{
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
