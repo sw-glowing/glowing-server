@@ -31,15 +31,11 @@ public class Corpus {
   @Column(name = "definition")
   private String definition;
 
-  @Column(name = "synonym")
-  private String synonym;
-
   @Builder
-  public Corpus(Long id, String content, String definition, String synonym){
+  public Corpus(Long id, String content, String definition){
     this.id = id;
     this.content = content;
     this.definition = definition;
-    this.synonym = synonym;
   }
 
 }
