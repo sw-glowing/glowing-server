@@ -45,12 +45,17 @@ public class Problem {
   @Column(name = "type")
   private ProblemType problemType;
 
+  @NotNull
+  @Column(name = "traps")
+  private String traps;
+
   @Builder
-  public Problem(Long id, Kit kit, String sentence, ProblemType problemType){
+  public Problem(Long id, Kit kit, String sentence, ProblemType problemType, String traps){
     this.id = id;
     this.kit = kit;
     this.sentence = sentence;
     this.problemType = problemType;
+    this.traps = traps;
   }
 
 }

@@ -30,6 +30,6 @@ public class ProblemDto {
     this.id = entity.getId();
     this.sentence = entity.getSentence();
     this.type = entity.getProblemType();
-    this.trap = this.getTrap();
+    this.trap = Arrays.asList(entity.getTraps().replace(", ", ",").split(","));
   }
 }
