@@ -1,8 +1,6 @@
 package com.swhack.glowing.domain.tlmContent.entity;
 
-import com.swhack.glowing.domain.school.entity.School;
 import com.swhack.glowing.domain.tlm.entity.Tlm;
-import com.swhack.glowing.domain.user.entity.User;
 import com.swhack.glowing.domain.word.entity.Word;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -42,24 +40,12 @@ public class TlmContent {
   @JoinColumn(name = "tlmId")
   private Tlm tlm;
 
-  @NotNull
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "userId")
-  private User user;
-
-  @NotNull
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "schoolId")
-  private School school;
-
 
   @Builder
-  public TlmContent(Long id, Word word, Tlm tlm, User user, School school){
+  public TlmContent(Long id, Word word, Tlm tlm){
     this.id = id;
     this.word = word;
     this.tlm = tlm;
-    this.user = user;
-    this.school = school;
   }
 
 }
