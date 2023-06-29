@@ -1,4 +1,12 @@
-FROM openjdk:11
-ARG JAR_FILE=./build/libs/*-SNAPSHOT.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","./app.jar"]
+FROM adoptopenjdk/openjdk11 AS builder
+
+WORKDIR /usr/src/api
+COPY . ./
+RUN chmod +x gradlew && \
+    ./gradlew clean build -x test
+
+FROM adoptopenjdk/openjdk11 AS runner
+
+WORKDIR /usr/src/api
+COPY --from=builder /usr/src/api/build/libs/*.jar app.jar
+CMD java -jar app.jar
