@@ -33,3 +33,9 @@ springdoc:
     path: /swagger-glowing.html
     tagsSorter: alpha
     operationsSorter: alpha
+
+cors:
+  allowed-origins: http://localhost:3000
+  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+  allowed-headers: authorization,content-type,x-auth-token
+  max-age: 3600
