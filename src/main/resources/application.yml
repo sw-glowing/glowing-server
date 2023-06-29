@@ -1,4 +1,8 @@
 spring:
+
+  profiles:
+    include: secret
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: ENC(afmOhnWo8N/U0A+WJSmUKgmuuFvlW9W4rTnbi2VfTN4OflW/ZF8rPDkvjMyud/uOatPAzf8FUDBQx7wJqAkZw98mD74hSwZZqpLvrCxq+Za1LJeqQ9eGDLIWZf5xVCcF)
@@ -22,11 +26,6 @@ server:
       enabled: true
       force: true
   port: 8080
-
-jasypt:
-  encryptor:
-    bean: jasyptStringEncryptor
-    password: jasypt_key
 
 springdoc:
   version: v1.0.0
