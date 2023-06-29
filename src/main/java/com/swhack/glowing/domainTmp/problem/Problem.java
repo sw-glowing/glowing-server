@@ -1,6 +1,5 @@
 package com.swhack.glowing.domainTmp.problem;
 
-import com.swhack.glowing.domainTmp.corpus.Corpus;
 import com.swhack.glowing.domainTmp.kit.Kit;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,11 +37,6 @@ public class Problem {
   private Kit kit;
 
   @NotNull
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "corpusId")
-  private Corpus corpus;
-
-  @NotNull
   @Column(name = "sentence")
   private String sentence;
 
@@ -52,10 +46,9 @@ public class Problem {
   private ProblemType problemType;
 
   @Builder
-  public Problem(Long id, Kit kit, Corpus corpus, String sentence, ProblemType problemType){
+  public Problem(Long id, Kit kit, String sentence, ProblemType problemType){
     this.id = id;
     this.kit = kit;
-    this.corpus = corpus;
     this.sentence = sentence;
     this.problemType = problemType;
   }
