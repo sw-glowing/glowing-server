@@ -33,15 +33,11 @@ public class Word {
   @Column(name = "definition")
   private String definition;
 
-  @Column(name = "synonym")
-  private String synonym;
-
   @Builder
-  public Word(Long id, String word, String definition, String synonym){
+  public Word(Long id, String word, String definition) {
     this.id = id;
     this.word = word;
     this.definition = definition;
-    this.synonym = synonym;
   }
 
 }

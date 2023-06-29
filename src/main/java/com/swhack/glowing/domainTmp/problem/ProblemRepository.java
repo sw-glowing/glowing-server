@@ -7,6 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ProblemRepository extends JpaRepository<Problem, Long>{
-  List<Problem> findAllByKit(Kit kit
-  );
+  List<Problem> findAllByKit(Kit kit);
 }
