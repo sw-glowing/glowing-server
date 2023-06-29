@@ -8,5 +8,5 @@ RUN chmod +x gradlew && \
 FROM adoptopenjdk/openjdk11 AS runner
 
 WORKDIR /usr/src/api
-COPY --from=builder /usr/src/api/build/libs/*.jar app.jar
+COPY --from=builder /usr/src/api/build/libs/glowing-0.0.1-SNAPSHOT.jar app.jar
 CMD java -jar app.jar
