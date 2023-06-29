@@ -1,4 +1,4 @@
-package com.swhack.glowing.domainTmp.corpus;
+package com.swhack.glowing.domainTmp.kit;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,12 +11,14 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
 
 @Entity
 @Getter
+@DynamicInsert
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "corpus")
-public class Corpus {
+@Table(name = "kit")
+public class Kit {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,22 +26,13 @@ public class Corpus {
   private Long id;
 
   @NotNull
-  @Column(name = "content")
-  private String content;
-
-  @NotNull
-  @Column(name = "definition")
-  private String definition;
-
-  @Column(name = "synonym")
-  private String synonym;
+  @Column(name = "title")
+  private String title;
 
   @Builder
-  public Corpus(Long id, String content, String definition, String synonym){
+  public Kit(Long id, String title){
     this.id = id;
-    this.content = content;
-    this.definition = definition;
-    this.synonym = synonym;
+    this.title = title;
   }
 
 }
