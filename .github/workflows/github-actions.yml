@@ -59,5 +59,5 @@ jobs:
         script: |
           sudo docker rm -f $(docker ps -qa)
           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/gmkim
-          docker-compose up -d
+          docker run -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/gmkim
           docker image prune -f
