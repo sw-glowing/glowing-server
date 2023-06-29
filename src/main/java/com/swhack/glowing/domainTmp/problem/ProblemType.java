@@ -4,7 +4,7 @@ import java.util.Locale;
 
 public enum ProblemType {
   BLANK,
-  REORDER;
+  ORDER;
 
   public static ProblemType of(String problemType) {
     return ProblemType.valueOf(problemType.toUpperCase(Locale.ROOT));
