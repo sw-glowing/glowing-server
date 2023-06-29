@@ -1,8 +1,5 @@
 package com.swhack.glowing.domainTmp.corpus;
 
-import com.swhack.glowing.domain.test.dto.response.GetTestInfoResponse;
-import com.swhack.glowing.domain.test.dto.response.GetTestListResponse;
-import com.swhack.glowing.domain.test.repository.TestRepository;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
