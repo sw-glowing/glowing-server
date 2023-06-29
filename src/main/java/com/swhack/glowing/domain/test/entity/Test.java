@@ -2,6 +2,7 @@ package com.swhack.glowing.domain.test.entity;
 
 import com.swhack.glowing.domain.school.entity.School;
 import com.swhack.glowing.domain.user.entity.User;
+import com.swhack.glowing.global.entity.BaseEntity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,7 +24,7 @@ import org.hibernate.annotations.DynamicInsert;
 @DynamicInsert
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "test")
-public class Test {
+public class Test extends BaseEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
