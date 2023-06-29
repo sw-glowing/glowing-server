@@ -38,26 +38,26 @@ jobs:
       shell: bash
 
     - name: Build with Gradle
-        run: |
-          chmod +x ./gradlew
-          ./gradlew clean build -x test
+      run: |
+        chmod +x ./gradlew
+        ./gradlew clean build -x test
 
     - name: Docker build & push to docker repo
-        run: |
-          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker build -f Dockerfile -t ${{ secrets.DOCKER_REPO }}/directors-dev .
-          docker push ${{ secrets.DOCKER_REPO }}/directors-dev
+      run: |
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        docker build -f Dockerfile -t ${{ secrets.DOCKER_REPO }}/directors-dev .
+        docker push ${{ secrets.DOCKER_REPO }}/directors-dev
 
     - name: Deploy to server
-        uses: appleboy/ssh-action@master
-        id: deploy
-        with:
-          host: ${{ secrets.HOST }}
-          username: ubuntu
-          key: ${{ secrets.KEY }}
-          envs: GITHUB_SHA
-        script: |
-          sudo docker rm -f $(docker ps -qa)
-          sudo docker pull ${{ secrets.DOCKER_REPO }}/directors-dev
-          docker-compose up -d
-          docker image prune -f
+      uses: appleboy/ssh-action@master
+      id: deploy
+      with:
+        host: ${{ secrets.HOST }}
+        username: ubuntu
+        key: ${{ secrets.KEY }}
+        envs: GITHUB_SHA
+      script: |
+        sudo docker rm -f $(docker ps -qa)
+        sudo docker pull ${{ secrets.DOCKER_REPO }}/directors-dev
+        docker-compose up -d
+        docker image prune -f
