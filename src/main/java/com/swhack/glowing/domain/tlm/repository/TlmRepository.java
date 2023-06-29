@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TlmRepository extends JpaRepository<Tlm, Long> {
+
 }
