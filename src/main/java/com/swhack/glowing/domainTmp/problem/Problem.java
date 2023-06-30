@@ -49,13 +49,28 @@ public class Problem {
   @Column(name = "traps")
   private String traps;
 
+  @NotNull
+  @Column(name = "cnt")
+  private Integer cnt;
+
+  @NotNull
+  @Column(name = "correctRate")
+  private Double correctRate;
+
   @Builder
-  public Problem(Long id, Kit kit, String sentence, ProblemType problemType, String traps){
+  public Problem(Long id, Kit kit, String sentence, ProblemType problemType, String traps, Integer cnt, Double correctRate){
     this.id = id;
     this.kit = kit;
     this.sentence = sentence;
     this.problemType = problemType;
     this.traps = traps;
+    this.cnt = cnt;
+    this.correctRate = correctRate;
+  }
+
+  public void updateProblemInfo(Integer cnt, Double correctRate){
+    this.cnt = cnt;
+    this.correctRate = correctRate;
   }
 
 }
