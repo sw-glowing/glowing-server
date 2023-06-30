@@ -16,6 +16,15 @@ public class KitService {
   private final KitRepository kitRepository;
   private final ProblemRepository problemRepository;
 
+  public List<Kit> getKitList(){
+
+    List<Kit> kitList = this.kitRepository.findAll()
+      .stream()
+      .collect(Collectors.toList());
+
+    return kitList;
+  }
+
   public GetKitInfoResponse getKitInfo(
     long kitId
   ){
